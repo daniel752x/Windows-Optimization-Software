@@ -6,7 +6,7 @@ This program is a simple .bat script that automatically adds entries to the Wind
 
 The script runs subsequent reg add commands that add or overwrite values ​​in the registry hive. By default, entries are added to the user hive (HKCU\Software\MyProgram), but you can customize the paths, values, and data types to suit your needs.
 
-### Sample entry
+## Sample entry
 
 bash
 reg add "HKCU\Software\MyProgram" /v Entry1 /t REG_SZ /d "Value1" /f
@@ -36,5 +36,5 @@ To restore the registry, select `File -> Import`.
 Recommendations
 Test in a Testing Environment: Before using the script on a production system, test it in a testing environment to ensure it works as expected.
 Careful Registry Editing: Editing the registry can affect the operating system's functionality. Make sure you fully understand what you want to achieve before making changes.
-#### Author
+## Author
 The script was created to automate the process of adding entries to the Windows registry. You are free to modify and customize it to suit your needs.
