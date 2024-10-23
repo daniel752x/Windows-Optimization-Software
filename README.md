@@ -1,69 +1,40 @@
 # Windows-Optimization-Software
 
-Ten program to prosty skrypt .bat, który automatycznie dodaje wpisy do rejestru systemu Windows. Skrypt wykorzystuje narzędzie reg add, aby dodać lub zmodyfikować określone wartości w rejestrze, co może być przydatne do konfigurowania aplikacji lub systemu operacyjnego.
+This program is a simple .bat script that automatically adds entries to the Windows registry. The script uses the reg add utility to add or modify specific values ​​in the registry, which can be useful for configuring applications or the operating system.
 
-## Jak działa
+## How it works
 
-Skrypt uruchamia kolejne komendy reg add, które dodają lub nadpisują wartości w gałęzi rejestru. Domyślnie wpisy są dodawane do gałęzi użytkownika (HKCU\Software\MojProgram), ale można dostosować ścieżki, wartości i typy danych zgodnie z własnymi potrzebami.
+The script runs subsequent reg add commands that add or overwrite values ​​in the registry hive. By default, entries are added to the user hive (HKCU\Software\MyProgram), but you can customize the paths, values, and data types to suit your needs.
 
-### Przykładowy wpis
+### Sample entry
 
 bash
-reg add "HKCU\Software\MojProgram" /v Wpis1 /t REG_SZ /d "Wartosc1" /f
+reg add "HKCU\Software\MyProgram" /v Entry1 /t REG_SZ /d "Value1" /f
 
-HKCU – HKEY_CURRENT_USER, ścieżka do rejestru dla bieżącego użytkownika.
+HKCU – HKEY_CURRENT_USER, the registry path for the current user.
+/v Entry1 – the name of the value being added.
+/t REG_SZ – the type of value (in this case, a string).
+/d "Value1" – the value assigned to the entry.
+/f – forces the addition of the entry without confirmation.
 
-/v Wpis1 – nazwa wartości, którą dodajemy.
+## Requirements
+Operating System: Windows10/11.
+Administrator privileges may be required when modifying system keys (e.g., in the HKLM – HKEY_LOCAL_MACHINE branch).
 
-/t REG_SZ – typ wartości (w tym przypadku ciąg znaków).
+## Usage Instructions
+Download the `.zip` file, save it on your computer, and extract it.
+Open the `WindowsOptimizationSoftware.bat` file as an administrator (right-click the command line icon and select "Run as administrator").
+The script will automatically add entries to the registry. Upon completion, it will display confirmation messages.
+Notes
+Safety: Adding entries to the registry may affect system stability. It's advisable to back up the registry before making changes to revert if issues arise. You can back up using the regedit tool.
+Registry Backup
+To back up the registry:
 
-/d "Wartosc1" – wartość przypisana do wpisu.
-
-/f – wymusza dodanie wpisu bez potwierdzenia.
-
-
-## Wymagania
-
-System operacyjny Windows.
-
-Uprawnienia administratora mogą być wymagane, jeśli modyfikujesz klucze systemowe (np. w gałęzi HKLM – HKEY_LOCAL_MACHINE).
-
-Sposób użycia
-
-1. Pobierz plik `.zip`, zapisz go na swoim komputerze i rozpakuj.
-
-2. Otwórz plik `WindowsOptimizationSoftware.bat` jako administrator (kliknij prawym przyciskiem myszy na ikonie wiersza polecenia i wybierz "Uruchom jako administrator").
-
-4. Skrypt automatycznie doda wpisy do rejestru. Po zakończeniu wyświetli komunikaty potwierdzające.
-
-## Uwagi
-
-Bezpieczeństwo: Dodawanie wpisów do rejestru może wpływać na stabilność systemu. Przed wprowadzeniem zmian warto wykonać kopię zapasową rejestru, aby móc cofnąć zmiany w razie problemów. Kopię zapasową można zrobić za pomocą narzędzia regedit.
-
-Kopia zapasowa rejestru
-
-Aby wykonać kopię zapasową rejestru:
-
-1. Naciśnij klawisze Win + R i wpisz regedit, aby otworzyć edytor rejestru.
-
-
-2. Wybierz Plik -> Eksportuj, a następnie wybierz lokalizację, w której chcesz zapisać kopię zapasową.
-
-
-3. W razie potrzeby przywróć rejestr, wybierając Plik -> Importuj.
-
-
-
-Zalecenia
-
-Testuj w środowisku testowym: Przed użyciem skryptu na systemie produkcyjnym, przetestuj go w środowisku testowym, aby upewnić się, że działa zgodnie z oczekiwaniami.
-
-Dokładna edycja rejestru: Edytowanie rejestru może wpłynąć na działanie systemu operacyjnego. Upewnij się, że dokładnie rozumiesz, co chcesz osiągnąć, zanim wprowadzisz zmiany.
-
-
-## Autor
-
-Skrypt został stworzony w celu automatyzacji procesu dodawania wpisów do rejestru systemu Windows. Możesz dowolnie modyfikować i dostosowywać go do własnych potrzeb.
-
-
-
+Press `Win + R`, type regedit, and press Enter to open the Registry Editor.
+Select `File -> Export`, then choose a location to save the backup.
+To restore the registry, select `File -> Import`.
+Recommendations
+Test in a Testing Environment: Before using the script on a production system, test it in a testing environment to ensure it works as expected.
+Careful Registry Editing: Editing the registry can affect the operating system's functionality. Make sure you fully understand what you want to achieve before making changes.
+#### Author
+The script was created to automate the process of adding entries to the Windows registry. You are free to modify and customize it to suit your needs.
